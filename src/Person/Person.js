@@ -1,9 +1,7 @@
-import {React} from 'react';
+import React from 'react';
 
-const person = () =>{
-    return (
-        <p>Person component</p>
-    );
-}
+const person = () => {
+    return(<p>Person</p>);
+};
 
 export default person;

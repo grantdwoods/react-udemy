@@ -6,8 +6,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-      <h1>Getting started with componenets</h1>
-      <Person/>
+        <h1>Getting started with componenets</h1>
+        <Person name='Grant' age='26'/>
+        <Person name='Jack' age='35'/>
       </div>
     );
   }

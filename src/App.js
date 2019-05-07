@@ -14,15 +14,10 @@ class App extends Component {
     showPersons: false,
   }
 
-  onCapitalizeClick = (newName) => {
-    console.log('Clicked!');
-
-    this.setState({
-      persons : [
-          { name: newName, age: 26 },
-          { name: 'JACK', age: 30},
-      ]
-    });
+  deletePersonHandler = (index) => {
+    const persons = this.state.persons;
+    persons.splice(index, 1);
+    this.setState({persons:persons});
   }
 
   onNameChange = (event) =>{
@@ -55,8 +50,11 @@ class App extends Component {
       persons = (
         <div>
         {
-          this.state.persons.map(person => 
-            <Person name={person.name} age={person.age}/>
+          this.state.persons.map((person, index) => 
+            <Person 
+              name={person.name}
+              age={person.age}
+              click={() => this.deletePersonHandler(index)}/>
           )
         }
       </div> 

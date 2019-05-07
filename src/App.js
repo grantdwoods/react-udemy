@@ -13,12 +13,12 @@ class App extends Component {
     otherState: 'stuff'
   }
 
-  onCapitalizeClick = () => {
+  onCapitalizeClick = (newName) => {
     console.log('Clicked!');
 
     this.setState({
       persons : [
-          { name: 'GRANT', age: 26 },
+          { name: newName, age: 26 },
           { name: 'JACK', age: 30},
       ]
     });
@@ -28,11 +28,11 @@ class App extends Component {
     return (
       <div className="App">
         <h1>Getting started with componenets</h1>
-        <button onClick={this.onCapitalizeClick}>Capitalize Names</button>
+        <button onClick={this.onCapitalizeClick.bind(this, 'GRANT!')}>Capitalize Names</button>
         <Person 
-          name={this.state.persons[0].name} 
+          name={this.state.persons[0].name}
           age={this.state.persons[0].age}
-          click={this.onCapitalizeClick}>
+          click={this.onCapitalizeClick.bind(this, 'Grant')}>
             <p>Child element!</p>
         </Person>
         <Person 

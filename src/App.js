@@ -54,18 +54,11 @@ class App extends Component {
     if(this.state.showPersons){
       persons = (
         <div>
-        <Person 
-          name={this.state.persons[0].name}
-          age={this.state.persons[0].age}
-          click={this.onCapitalizeClick.bind(this, 'Grant')}>
-            <p>Child element!</p>
-        </Person>
-
-        <Person 
-            name={this.state.persons[1].name} 
-            age={this.state.persons[1].age}
-            changed={this.onNameChange}>
-        </Person>
+        {
+          this.state.persons.map(person => 
+            <Person name={person.name} age={person.age}/>
+          )
+        }
       </div> 
       );
     }
@@ -73,7 +66,6 @@ class App extends Component {
     return (
       <div className="App">
         <h1>Getting started with componenets</h1>
-
         <button 
           style={style}
           onClick={this.togglePersonHandler}>

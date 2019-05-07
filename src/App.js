@@ -28,7 +28,7 @@ class App extends Component {
     return (
       <div className="App">
         <h1>Getting started with componenets</h1>
-        <button onClick={this.onCapitalizeClick.bind(this, 'GRANT!')}>Capitalize Names</button>
+        <button onClick={() => this.onCapitalizeClick('GRANT')}>Capitalize Names</button>
         <Person 
           name={this.state.persons[0].name}
           age={this.state.persons[0].age}

@@ -10,7 +10,8 @@ class App extends Component {
       { name: 'Grant', age: 26 },
       { name: 'Jack', age: 30},
     ],
-    otherState: 'stuff'
+    otherState: 'stuff',
+    showPersons: false,
   }
 
   onCapitalizeClick = (newName) => {
@@ -33,6 +34,11 @@ class App extends Component {
     });
   }
 
+  togglePersonHandler = () => {
+    const shown = this.state.showPersons;
+    this.setState({showPersons: !shown});
+  }
+
   render() {
 
     const style = {
@@ -46,25 +52,31 @@ class App extends Component {
     return (
       <div className="App">
         <h1>Getting started with componenets</h1>
+
         <button 
           style={style}
-          onClick={() => this.onCapitalizeClick('GRANT')}>
-          Capitalize Names
+          onClick={this.togglePersonHandler}>
+          Show/Hide
         </button>
 
-        <Person 
-          name={this.state.persons[0].name}
-          age={this.state.persons[0].age}
-          click={this.onCapitalizeClick.bind(this, 'Grant')}>
-            <p>Child element!</p>
-        </Person>
+        { 
+          this.state.showPersons ? 
+            <div>
+              <Person 
+              name={this.state.persons[0].name}
+              age={this.state.persons[0].age}
+              click={this.onCapitalizeClick.bind(this, 'Grant')}>
+                <p>Child element!</p>
+              </Person>
 
-        <Person 
-        name={this.state.persons[1].name} 
-        age={this.state.persons[1].age}
-        changed={this.onNameChange}>
-        </Person>
-
+              <Person 
+                name={this.state.persons[1].name} 
+                age={this.state.persons[1].age}
+                changed={this.onNameChange}>
+              </Person>
+              </div> 
+          :null
+        }
       </div>
     );
   }

@@ -34,10 +34,23 @@ class App extends Component {
   }
 
   render() {
+
+    const style = {
+      backgroundColor: 'white',
+      font: 'inherit',
+      border: '1px solid blue',
+      padding: '8px',
+      cursor: 'pointer'
+    };
+
     return (
       <div className="App">
         <h1>Getting started with componenets</h1>
-        <button onClick={() => this.onCapitalizeClick('GRANT')}>Capitalize Names</button>
+        <button 
+          style={style}
+          onClick={() => this.onCapitalizeClick('GRANT')}>
+          Capitalize Names
+        </button>
 
         <Person 
           name={this.state.persons[0].name}
@@ -51,7 +64,7 @@ class App extends Component {
         age={this.state.persons[1].age}
         changed={this.onNameChange}>
         </Person>
-        
+
       </div>
     );
   }

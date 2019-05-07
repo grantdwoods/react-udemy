@@ -4,7 +4,6 @@ import Person from './Person/Person';
 
 class App extends Component {
 
-  //reserved word in react, only used in class based components
   state = {
     persons : [
       { name: 'Grant', age: 26 },
@@ -15,7 +14,7 @@ class App extends Component {
   }
 
   deletePersonHandler = (index) => {
-    const persons = this.state.persons;
+    const persons = [...this.state.persons];
     persons.splice(index, 1);
     this.setState({persons:persons});
   }

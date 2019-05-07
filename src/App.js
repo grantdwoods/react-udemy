@@ -29,8 +29,16 @@ class App extends Component {
       <div className="App">
         <h1>Getting started with componenets</h1>
         <button onClick={this.onCapitalizeClick}>Capitalize Names</button>
-        <Person name={this.state.persons[0].name} age={this.state.persons[0].age}><p>Child element!</p></Person>
-        <Person name={this.state.persons[1].name} age={this.state.persons[1].age}/>
+        <Person 
+          name={this.state.persons[0].name} 
+          age={this.state.persons[0].age}
+          click={this.onCapitalizeClick}>
+            <p>Child element!</p>
+        </Person>
+        <Person 
+        name={this.state.persons[1].name} 
+        age={this.state.persons[1].age}>    
+        </Person>
       </div>
     );
   }

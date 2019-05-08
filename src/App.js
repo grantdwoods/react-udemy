@@ -8,6 +8,7 @@ class App extends Component {
     persons : [
       { name: 'Grant', age: 26, id: 10},
       { name: 'Jack', age: 30, id: 40},
+      { name: 'Tom', age: 50, id: 78}
     ],
     otherState: 'stuff',
     showPersons: false,
@@ -22,7 +23,7 @@ class App extends Component {
   nameChangeHandler = (event, id) =>{
 
     const personIndex = this.state.persons.findIndex( per => per.id === id );
-    const person = {... this.state.persons[personIndex]};
+    const person = {...this.state.persons[personIndex]};
     person.name = event.target.value;
 
     const persons = [...this.state.persons];
@@ -37,6 +38,8 @@ class App extends Component {
   }
 
   render() {
+
+    console.log('Render called in App');
 
     const style = {
       backgroundColor: 'green',
@@ -68,9 +71,19 @@ class App extends Component {
       style.backgroundColor = 'red';
     }
 
+    const classes = [];
+
+    if(this.state.persons.length <=2 ){
+      classes.push('red');
+    }
+    if(this.state.persons.length <=1){
+      classes.push('bold');
+    }
+
     return (
       <div className="App">
         <h1>Getting started with componenets</h1>
+        <p className={classes.join(' ')}>Testing classes variable</p>
         <button 
           style={style}
           onClick={this.togglePersonHandler}>

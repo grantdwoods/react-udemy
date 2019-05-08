@@ -21,8 +21,6 @@ class App extends Component {
   }
 
   onDeleteChar = (index) => {
-
-    console.log('Clicked');
     const charArray = [...this.state.chars];
     charArray.splice(index,1);
 
@@ -44,6 +42,7 @@ class App extends Component {
               <CharComponent 
                 char={char}
                 click={() => this.onDeleteChar(index)}
+                key={index}
               />
             )
           }
@@ -53,7 +52,11 @@ class App extends Component {
 
     return (
       <div className="App">
-      <input type='text' onChange={this.onInputChanged} value={this.state.input}/>
+      <input 
+        type='text' 
+        onChange={this.onInputChanged} 
+        value={this.state.input}
+      />
       <p>{this.state.length}</p>
       <Validation length={this.state.length}/>
       {charArray}

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import classes from './App.module.css';
 import './App.module.css';
-import Person from './Person/Person';
+import Person from '../../components/Persons/Person/Person'
 
 class App extends Component {
 
@@ -55,7 +55,7 @@ class App extends Component {
               click={() => this.deletePersonHandler(index)}
               key={person.id}
               changed={(event) => this.nameChangeHandler(event, person.id)}
-              />
+            />
           )
         }
       </div> 

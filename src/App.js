@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import classes from './App.module.css';
+import './App.module.css';
 import Person from './Person/Person';
 
 class App extends Component {
@@ -38,18 +39,10 @@ class App extends Component {
   }
 
   render() {
-
     console.log('Render called in App');
 
-    const style = {
-      backgroundColor: 'green',
-      font: 'inherit',
-      border: '1px solid blue',
-      padding: '8px',
-      cursor: 'pointer',
-    };
-
     let persons = null;
+    let buttonClass = '';
 
     if(this.state.showPersons){
       persons = (
@@ -68,7 +61,9 @@ class App extends Component {
       </div> 
       );
 
-      style.backgroundColor = 'red';
+      //classes.Red gets returned as a string representation of the css selector.
+      //Also note that the Red class was a special sub selector and was still avalible on the classes object.
+      buttonClass = classes.Red;
     }
 
     const assignedClasses = [];
@@ -84,8 +79,8 @@ class App extends Component {
       <div className={classes.App}>
         <h1>Getting started with componenets</h1>
         <p className={assignedClasses.join(' ')}>Testing classes variable</p>
-        <button 
-          style={style}
+        <button
+          className= {buttonClass}
           onClick={this.togglePersonHandler}>
           Show/Hide
         </button>

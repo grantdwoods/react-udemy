@@ -2,7 +2,7 @@ import React from 'react';
 import classes from './Person.module.css';
 
 const person = (props) => {
-    console.log('Returning Person element');
+    console.log('Person render');
     
     return(
         <div className={classes.Person}>

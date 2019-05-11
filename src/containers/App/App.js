@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import classes from './App.module.css';
 import './App.module.css';
-import Person from '../../components/Persons/Person/Person'
+import Persons from '../../components/Persons/Persons';
+import Cockpit from '../../components/Cockpit/Cockpit';
 
 class App extends Component {
 
@@ -42,48 +43,23 @@ class App extends Component {
     console.log('Render called in App');
 
     let persons = null;
-    let buttonClass = '';
 
     if(this.state.showPersons){
       persons = (
-        <div>
-        {
-          this.state.persons.map((person, index) => 
-            <Person 
-              name={person.name}
-              age={person.age}
-              click={() => this.deletePersonHandler(index)}
-              key={person.id}
-              changed={(event) => this.nameChangeHandler(event, person.id)}
-            />
-          )
-        }
-      </div> 
+          <Persons 
+            persons={this.state.persons}
+            clicked={this.deletePersonHandler}
+            changed={this.nameChangeHandler}/>
       );
-
-      //classes.Red gets returned as a string representation of the css selector.
-      //Also note that the Red class was a special sub selector and was still avalible on the classes object.
-      buttonClass = classes.Red;
-    }
-
-    const assignedClasses = [];
-
-    if(this.state.persons.length <=2 ){
-      assignedClasses.push( classes.red );
-    }
-    if(this.state.persons.length <=1 ){
-      assignedClasses.push( classes.bold );
     }
 
     return (
       <div className={classes.App}>
-        <h1>Getting started with componenets</h1>
-        <p className={assignedClasses.join(' ')}>Testing classes variable</p>
-        <button
-          className= {buttonClass}
-          onClick={this.togglePersonHandler}>
-          Show/Hide
-        </button>
+        <Cockpit 
+          showPersons={this.state.showPersons}
+          persons={this.state.persons}
+          clicked={this.togglePersonHandler}
+        />
         {persons}
       </div>
     );

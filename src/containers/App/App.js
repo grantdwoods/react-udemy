@@ -27,6 +27,10 @@ class App extends Component {
     return state;
   }
 
+  componentDidMount(){
+    console.log('App did mount');
+  }
+
   deletePersonHandler = (index) => {
     const persons = [...this.state.persons];
     persons.splice(index, 1);

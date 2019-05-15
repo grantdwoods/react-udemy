@@ -19,7 +19,7 @@ const cockpit = props => {
 
     return (
     <div className={classes.Cockpit}>
-        <h1>Getting started with componenets</h1>
+        <h1>Udemy React</h1>
         <p className={assignedClasses.join(' ')}>Testing classes variable</p>
         <button
             className={buttonClass}

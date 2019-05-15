@@ -7,11 +7,14 @@ const Cockpit = props => {
     console.log('Cockpit useEffect');
     //http requests... other work usually done in lifecycle hooks
 
-    setTimeout(()=> { alert('Task done.')}, 1000);
+    const timer = setTimeout(()=> { alert('Task done.')}, 1000);
 
     //returning a function will cause this function to be executed before main function runs
     //and after the first render cycle
-    return () => { console.log('Cockpit clean up function');}
+    return () => { 
+      console.log('Cockpit clean up function'); 
+      clearTimeout(timer);
+    }
 
   },//second argument to useEffect.
   []);

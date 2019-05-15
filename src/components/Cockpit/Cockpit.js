@@ -8,8 +8,8 @@ const Cockpit = props => {
     //http requests... other work usually done in lifecycle hooks
 
     setTimeout(()=> { alert('Task done.')}, 1000);
-  },//second argument to useEffect. function will only run when persons changes 
-  [props.persons]);
+  },//second argument to useEffect. Function will only run when persons changes.
+  []);
 
 
     const assignedClasses = [];

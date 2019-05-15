@@ -1,18 +1,22 @@
-import React, {Component} from 'react';
+import React, {PureComponent} from 'react';
 import Person from './Person/Person'
 
-class Persons extends Component{
+class Persons extends PureComponent{
   
-  static getDerivedStateFromProps(props, state){
-    console.log('Persons getDerivedStateFromProps');
-    return state;
-  }
+  // static getDerivedStateFromProps(props, state){
+  //   console.log('Persons getDerivedStateFromProps');
+  //   return state;
+  // }
 
-  shouldComponentUpdate(nextProps,nextState){
-    console.log('Persons shouldComponentUpdate');
+//This is effectively what a pure component will do!
+  // shouldComponentUpdate(nextProps,nextState){
+  //    console.log('Persons shouldComponentUpdate');
     
-    return nextProps.persons !== this.props.persons;
-  }
+  //    return (
+  //     nextProps.persons !== this.props.persons ||
+  //     nextProps.changed !== this.props.changed ||
+  //     nextProps.clicked !== this.props.clicked)
+  // }
 
   getSnapshotBeforeUpdate(prevProps, prevState){
     console.log('Persons getSnapshotBeforeUpdate');

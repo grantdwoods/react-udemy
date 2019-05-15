@@ -8,7 +8,7 @@ class App extends Component {
 
   constructor(props){
     super(props);
-    console.log('App ctor.');
+    console.log('App constructor');
   }
 
   state = {
@@ -22,13 +22,18 @@ class App extends Component {
   }
 
   static getDerivedStateFromProps(props,state){
-    console.log('App get derived state from props.');
+    console.log('App getDerivedStateFromProps');
     console.log('props',props);
     return state;
   }
 
   componentDidMount(){
-    console.log('App did mount');
+    console.log('App componentDidMount');
+  }
+
+  shouldComponentUpdate(){
+    console.log('App shouldComponentUpdate');
+    return true;
   }
 
   deletePersonHandler = (index) => {
@@ -55,7 +60,7 @@ class App extends Component {
   }
 
   render() {
-    console.log('App render.');
+    console.log('App render');
 
     let persons = null;
 

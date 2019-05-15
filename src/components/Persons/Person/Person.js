@@ -4,12 +4,12 @@ import classes from './Person.module.css';
 class Person extends Component{
 
     static getDerivedStateFromProps(props, state){
-        console.log('Persons getDerivedStateFromProps');
+        console.log('Person getDerivedStateFromProps');
         return state;
     }
 
     shouldComponentUpdate(nextProps,nextState){
-        console.log('Persons shouldComponentUpdate');
+        console.log('Person shouldComponentUpdate');
 
         //Must return a bool. Typically you would compare props first.
         return true;

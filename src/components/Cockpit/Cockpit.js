@@ -12,31 +12,31 @@ const Cockpit = props => {
   []);
 
 
-    const assignedClasses = [];
-    let buttonClass = '';
+  const assignedClasses = [];
+  let buttonClass = '';
 
-    if(props.showPersons){
-        buttonClass = classes.Red;
-    }
+  if(props.showPersons){
+    buttonClass = classes.Red;
+  }
 
-    if(props.persons.length <=2 ){
-      assignedClasses.push( classes.red ); //classes=['red']
-    }
-    if(props.persons.length <=1 ){
-      assignedClasses.push( classes.bold ); // classes=['red', 'bold']
-    }
+  if(props.persons.length <=2 ){
+    assignedClasses.push( classes.red ); //classes=['red']
+  }
+  if(props.persons.length <=1 ){
+    assignedClasses.push( classes.bold ); // classes=['red', 'bold']
+  }
 
-    return (
+  return (
     <div className={classes.Cockpit}>
-        <h1>Udemy React</h1>
-        <p className={assignedClasses.join(' ')}>Testing classes variable</p>
-        <button
-            className={buttonClass}
-            onClick={props.clicked}>
-            Show/Hide
-        </button>
-    </div>
-    );
+      <h1>Udemy React</h1>
+      <p className={assignedClasses.join(' ')}>Testing classes variable</p>
+      <button
+          className={buttonClass}
+          onClick={props.clicked}>
+          Show/Hide
+      </button>
+  </div>
+  );
 }
 
 export default Cockpit;

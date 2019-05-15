@@ -1,7 +1,16 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import classes from './Cockpit.module.css';
 
-const cockpit = props => {
+const Cockpit = props => {
+
+  useEffect(()=>{
+    console.log('Cockpit useEffect');
+    //http requests... other work usually done in lifecycle hooks
+
+    setTimeout(()=> { alert('Task done.')}, 1000);
+  },//second argument to useEffect. function will only run when persons changes 
+  [props.persons]);
+
 
     const assignedClasses = [];
     let buttonClass = '';
@@ -30,4 +39,4 @@ const cockpit = props => {
     );
 }
 
-export default cockpit;
+export default Cockpit;

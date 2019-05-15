@@ -10,9 +10,8 @@ class Persons extends Component{
 
   shouldComponentUpdate(nextProps,nextState){
     console.log('Persons shouldComponentUpdate');
-
-    //Must return a bool. Typically you would compare props first.
-    return true;
+    
+    return nextProps.persons !== this.props.persons;
   }
 
   getSnapshotBeforeUpdate(prevProps, prevState){

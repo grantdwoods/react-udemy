@@ -8,8 +8,19 @@ const Cockpit = props => {
     //http requests... other work usually done in lifecycle hooks
 
     setTimeout(()=> { alert('Task done.')}, 1000);
-  },//second argument to useEffect. Function will only run when persons changes.
+
+    //returning a function will cause this function to be executed before main function runs
+    //and after the first render cycle
+    return () => { console.log('Cockpit clean up function');}
+
+  },//second argument to useEffect.
   []);
+
+  //no second argument, runs every update cycle
+  useEffect(()=>{
+    console.log('Cockpit 2nd useEffect');
+    return () => { console.log('Cockpit 2nd clean up funciton');}
+  });
 
 
   const assignedClasses = [];

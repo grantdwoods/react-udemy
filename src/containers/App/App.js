@@ -1,8 +1,9 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import classes from './App.module.css';
 import './App.module.css';
 import Persons from '../../components/Persons/Persons';
 import Cockpit from '../../components/Cockpit/Cockpit';
+import withClass from '../../components/HOC/withClass';
 
 class App extends Component {
 
@@ -75,7 +76,7 @@ class App extends Component {
     }
 
     return (
-      <div className={classes.App}>
+      <Fragment>
       <button onClick={()=>{this.setState({showCockPit:false})}}>remove cockpit</button>
         {this.state.showCockPit ?<Cockpit 
           showPersons={this.state.showPersons}
@@ -83,9 +84,9 @@ class App extends Component {
           clicked={this.togglePersonHandler}
         />: null}
         {persons}
-      </div>
+      </Fragment>
     );
   }
 }
 
-export default App;
+export default withClass(App, classes.App);

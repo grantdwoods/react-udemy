@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, Fragment} from 'react';
 import classes from './Person.module.css';
 
 class Person extends Component{
@@ -7,11 +7,11 @@ class Person extends Component{
         console.log('Person render');
     
         return(
-            <div className={classes.Person}>
+            <Fragment>
                 <p onClick={this.props.click}>My name is {this.props.name} and I am {this.props.age}</p>
                 <p>{this.props.children}</p>
                 <input type="text" onChange={this.props.changed} value={this.props.name} />
-            </div>
+            </Fragment>
         );
     }
 }

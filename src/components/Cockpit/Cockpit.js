@@ -1,30 +1,27 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useRef} from 'react';
 import classes from './Cockpit.module.css';
 
 const Cockpit = props => {
 
+  const toggleButtonRef = useRef(null);
+
   useEffect(()=>{
     console.log('Cockpit useEffect');
-    //http requests... other work usually done in lifecycle hooks
 
     const timer = setTimeout(()=> { alert('Task done.')}, 1000);
-
-    //returning a function will cause this function to be executed before main function runs
-    //and after the first render cycle
+    toggleButtonRef.current.click();
     return () => { 
       console.log('Cockpit clean up function'); 
       clearTimeout(timer);
     }
+  },
+    []
+  );
 
-  },//second argument to useEffect.
-  []);
-
-  //no second argument, runs every update cycle
   useEffect(()=>{
     console.log('Cockpit 2nd useEffect');
     return () => { console.log('Cockpit 2nd clean up funciton');}
   });
-
 
   const assignedClasses = [];
   let buttonClass = '';
@@ -34,10 +31,10 @@ const Cockpit = props => {
   }
 
   if(props.personsLength <=2 ){
-    assignedClasses.push( classes.red ); //classes=['red']
+    assignedClasses.push( classes.red );
   }
   if(props.personsLength <=1 ){
-    assignedClasses.push( classes.bold ); // classes=['red', 'bold']
+    assignedClasses.push( classes.bold );
   }
 
   return (
@@ -45,6 +42,7 @@ const Cockpit = props => {
       <h1>Udemy React</h1>
       <p className={assignedClasses.join(' ')}>Testing classes variable</p>
       <button
+          ref={toggleButtonRef}
           className={buttonClass}
           onClick={props.clicked}>
           Show/Hide

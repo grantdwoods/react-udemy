@@ -8,11 +8,11 @@ const Cockpit = props => {
   useEffect(()=>{
     console.log('Cockpit useEffect');
 
-    const timer = setTimeout(()=> { alert('Task done.')}, 1000);
-    toggleButtonRef.current.click();
+    //const timer = setTimeout(()=> { alert('Task done.')}, 1000);
+   // toggleButtonRef.current.click();
     return () => { 
       console.log('Cockpit clean up function'); 
-      clearTimeout(timer);
+      //clearTimeout(timer);
     }
   },
     []
@@ -47,6 +47,7 @@ const Cockpit = props => {
           onClick={props.clicked}>
           Show/Hide
       </button>
+      <button onClick={props.login}>Log in</button>
   </div>
   );
 }
